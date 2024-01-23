@@ -22,7 +22,7 @@ const CotizadorProvider = ({ children }) => {
 
   const cotizarSeguro = () => {
     // Una base
-    let resultado = 2000;
+    let resultado = 350;
 
     // Obtener diferencia de años
     const diferencia = obtenerDiferenciaYear(datos.year);
