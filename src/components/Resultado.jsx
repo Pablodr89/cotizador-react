@@ -1,22 +1,22 @@
-// import { Fragment, useCallback, useMemo, useRef } from 'react'
-// import useCotizador from "../hooks/useCotizador"
-// import { MARCAS, PLANES } from '../constants'
+import { Fragment, useCallback, useMemo, useRef } from 'react';
+import useCotizador from '../hooks/useCotizador';
+import { MARCAS, PLANES } from '../constants';
 
 const Resultado = () => {
-  // const { resultado, datos } = useCotizador()
-  // const { marca, plan, year } = datos
-  // const yearRef = useRef(year)
+  const { resultado, datos } = useCotizador();
+  const { marca, plan, year } = datos;
+  const yearRef = useRef(year);
 
-  // const [nombreMarca] = useCallback(
-  //     MARCAS.filter(m => m.id === Number(marca) ),
-  //     [ resultado]
-  // )
-  // const [nombrePlan] = useCallback(
-  //     PLANES.filter(p => p.id === Number(plan) ),
-  //     [resultado]
-  // )
+  const [nombreMarca] = useCallback(
+    MARCAS.filter(m => m.id === Number(marca)),
+    [resultado]
+  );
+  const [nombrePlan] = useCallback(
+    PLANES.filter(p => p.id === Number(plan)),
+    [resultado]
+  );
 
-  // if(resultado === 0) return null
+  if (resultado === 0) return null;
 
   return (
     <div className="bg-gray-100 text-center mt-5 p-5 shadow">
@@ -24,24 +24,24 @@ const Resultado = () => {
 
       <p className="my-2">
         <span className="font-bold">Marca: </span>
-        {/* {nombreMarca.nombre} */}Marca
+        {nombreMarca.nombre}
       </p>
 
       <p className="my-2">
         <span className="font-bold">Plan: </span>
-        {/* {nombrePlan.nombre} */}Plan
+        {nombrePlan.nombre}
       </p>
 
       <Fragment>
         <p className="my-2">
           <span className="font-bold">Año del Auto: </span>
-          {/* {yearRef.current} */}Año
+          {yearRef.current}
         </p>
       </Fragment>
 
       <p className="my-2 text-2xl">
         <span className="font-bold">Total Cotización: </span>
-        {/* {resultado} */}Resultado
+        {resultado}
       </p>
     </div>
   );
